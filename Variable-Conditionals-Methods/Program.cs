@@ -12,42 +12,80 @@ namespace Variable_Conditionals_Methods
     {
         static int exp;
         static int level;
+        static int lvlUpNumber;
+        static int expReqToLevelUp;
+        static int expInc;
 
         static void Main()
         {
+            Console.ForegroundColor = ConsoleColor.White;
             //initialize
             exp = 0;
-            level = 1;
+            lvlUpNumber = 1;
+            level = lvlUpNumber;
+            expInc = 25; //never changes
+            expReqToLevelUp = expInc; // changes ever level up
 
             HUD();
 
-            Experience();
-
-            Console.ReadKey();
+            AddExp(15);
+            LevelUpCheck();
 
             HUD();
-            
+
+            AddExp(15);
+            LevelUpCheck();
+
+            HUD();
+
+            AddExp(25);
+            LevelUpCheck();
+
+            HUD();
+
+            AddExp(25);
+            LevelUpCheck();
+
+            HUD();
+            AddExp(25);
+            LevelUpCheck();
+
+            HUD();
+
+            AddExp(50);
+            LevelUpCheck();
+
+            HUD();
+
         }
 
-        static void Experience()
+        static void AddExp(int xp)
         {
-            int xp;
-            xp = 25;
             exp = xp + exp;
+            Console.WriteLine("\nYou gained " + xp +" XP");
         }
 
-        static void Level()
+        static void LevelUpCheck()
         {
-            //if exp == 25, level 2
-            //if exp == 50, level 3
-            //if exp == 
+            if (exp >= expReqToLevelUp)
+            {
+                level = level + lvlUpNumber;
+                exp = exp - expReqToLevelUp;
+                
+                // increase XP requirement to level up
+                expReqToLevelUp = expReqToLevelUp + expInc; // hardcoded (uh-oh!) to 25
+            } 
         }
 
         static void HUD()
         {
-            Console.WriteLine("HUD Display");
+            Console.WriteLine("\nHUD Display");
             Console.WriteLine("Level: " + level);
             Console.WriteLine("XP: " + exp);
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("expIncrease numbers " + expReqToLevelUp);
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 }
