@@ -83,8 +83,6 @@ namespace Variable_Conditionals_Methods
             Console.WriteLine("Level: " + level);
             Console.WriteLine("XP: " + exp + "/" + expReqToLevelUp);
 
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("expIncrease numbers " + expReqToLevelUp);
             Console.ForegroundColor = ConsoleColor.White;
         }
     }
