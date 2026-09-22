@@ -10,11 +10,11 @@ namespace Variable_Conditionals_Methods
 
     internal class Program
     {
-        static int exp;
         static int level;
         static int lvlUpNumber;
-        static int expReqToLevelUp;
+        static int exp;
         static int expInc;
+        static int expReqToLevelUp;
 
         static void Main()
         {
@@ -22,27 +22,19 @@ namespace Variable_Conditionals_Methods
             //initialize
             lvlUpNumber = 1;
             level = lvlUpNumber;
-            exp = 0;
+            exp = 0; //what the player sees
             expInc = 25; //never changes
-            expReqToLevelUp = expInc; // changes ever level up
+            expReqToLevelUp = expInc; // changes every level up
 
             HUD();
-
             AddExp(15);
             LevelUpCheck();
 
             HUD();
-
             AddExp(15);
             LevelUpCheck();
 
             HUD();
-
-            AddExp(25);
-            LevelUpCheck();
-
-            HUD();
-
             AddExp(25);
             LevelUpCheck();
 
@@ -51,18 +43,24 @@ namespace Variable_Conditionals_Methods
             LevelUpCheck();
 
             HUD();
+            AddExp(25);
+            LevelUpCheck();
 
+            HUD();
             AddExp(50);
             LevelUpCheck();
 
             HUD();
-
         }
 
         static void AddExp(int xp)
         {
+            Console.ForegroundColor = ConsoleColor.Green;
+
             exp = xp + exp;
             Console.WriteLine("\nYou gained " + xp +" XP");
+
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         static void LevelUpCheck()
@@ -73,13 +71,15 @@ namespace Variable_Conditionals_Methods
                 exp = exp - expReqToLevelUp;
                 
                 // increase XP requirement to level up
-                expReqToLevelUp = expReqToLevelUp + expInc; // hardcoded (uh-oh!) to 25
+                expReqToLevelUp = expReqToLevelUp + expInc; 
             } 
         }
 
         static void HUD()
         {
             Console.WriteLine("\nHUD Display");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+
             Console.WriteLine("Level: " + level);
             Console.WriteLine("XP: " + exp + "/" + expReqToLevelUp);
 
