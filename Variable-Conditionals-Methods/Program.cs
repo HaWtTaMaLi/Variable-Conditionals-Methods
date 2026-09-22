@@ -20,9 +20,9 @@ namespace Variable_Conditionals_Methods
         {
             Console.ForegroundColor = ConsoleColor.White;
             //initialize
-            exp = 0;
             lvlUpNumber = 1;
             level = lvlUpNumber;
+            exp = 0;
             expInc = 25; //never changes
             expReqToLevelUp = expInc; // changes ever level up
 
@@ -81,7 +81,7 @@ namespace Variable_Conditionals_Methods
         {
             Console.WriteLine("\nHUD Display");
             Console.WriteLine("Level: " + level);
-            Console.WriteLine("XP: " + exp);
+            Console.WriteLine("XP: " + exp + "/" + expReqToLevelUp);
 
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("expIncrease numbers " + expReqToLevelUp);
